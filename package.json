@@ -1,0 +1,29 @@
+{
+  "name": "wed-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "dev": "node ./src/app.js",
+    "start": "nodemon ./src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.56.0"
+  },
+  "dependencies": {
+    "@graphql-tools/schema": "^10.0.2",
+    "apollo-server": "^3.13.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "graphql": "^16.8.1",
+    "graphql-tools": "^9.0.0",
+    "http-status": "^1.7.3",
+    "lodash": "^4.17.21",
+    "mongoose": "^8.1.0"
+  }
+}
