@@ -1,14 +1,17 @@
 const httpStatus = require("http-status");
 const { Domain } = require("../models");
 const ApiError = require("../utils/ApiError");
+const paginate = require("../utils/paginate");
 
 const createDomain = async (DomainBody) => {
   return Domain.create(DomainBody);
 };
 
-const queryDomain = async () => {
-  const result = await Domain.find();
-  return result;
+const queryDomains = async (options) => {
+  const result = await paginate(options, Domain);
+  return {
+    result,
+  };
 };
 
 const getDomainById = async (id) => {
@@ -39,5 +42,5 @@ module.exports = {
   getDomainById,
   updateDomainById,
   deleteDomainById,
-  queryDomain,
+  queryDomains,
 };

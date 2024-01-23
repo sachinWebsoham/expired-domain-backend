@@ -2,9 +2,15 @@ const { Domain } = require("../../models");
 const { domainService } = require("../../services");
 const resolvers = {
   Query: {
-    domains: async () => {
-      const result = domainService.queryDomain();
-      return result;
+    getDomains: async (parent, { input }) => {
+      const result = await domainService.queryDomains(input);
+      return {
+        totalResult: result.result.totalResult,
+        totalPage: result.result.totalPage,
+        limit: result.result.limit,
+        page: result.result.page,
+        result: result.result.result,
+      };
     },
   },
   Mutation: {
